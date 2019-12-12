@@ -35,7 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.connectBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listView1 = new OPCDA.DoubleBufferListView();
             this.tagName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tagValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.quality = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -175,7 +175,7 @@
         private System.Windows.Forms.TextBox hostTxtB;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ListView listView1;
+        private DoubleBufferListView listView1;
         private System.Windows.Forms.Button connectBtn;
         private System.Windows.Forms.ColumnHeader tagName;
         private System.Windows.Forms.ColumnHeader tagValue;

@@ -39,7 +39,7 @@ namespace OPCDA
             Opc.Da.SubscriptionState groupState = new Opc.Da.SubscriptionState();
             groupState.Name = groupName;
             groupState.Active = true;
-            groupState.UpdateRate = 200;
+            groupState.UpdateRate = 1000;
 
             // Short circuit if group already exists
             SubscriptionCollection existingCollection = _server.Subscriptions;
