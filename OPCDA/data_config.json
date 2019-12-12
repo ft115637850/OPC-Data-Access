@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Group1",
+    "items": [
+      "New_TCPIP_PORT_000.New_ModbusPLC_000.Item_0",
+      "New_TCPIP_PORT_000.New_ModbusPLC_000.Item_1",
+      "New_TCPIP_PORT_000.New_ModbusPLC_000.Item_2"
+    ]
+  },
+  {
+    "name": "Group2",
+    "items": [
+      "New_TCPIP_PORT_000.New_ModbusPLC_000.Item_0",
+      "New_TCPIP_PORT_000.New_ModbusPLC_000.Item_1",
+      "New_TCPIP_PORT_000.New_ModbusPLC_000.Item_2"
+    ]
+  }
+]
+
