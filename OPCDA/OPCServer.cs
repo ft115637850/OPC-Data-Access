@@ -25,7 +25,7 @@ namespace OPCDA
             _server.Connect();
         }
 
-        public void AddSubscription(string groupName, List<string> tagList, DataChangedEventHandler onDataChange)
+        public void AddSubscription(string groupName, List<string> tagList, DataChangedEventHandler onDataChange, int updateRate)
         {
 
             if (!_server.IsConnected)
@@ -39,7 +39,7 @@ namespace OPCDA
             Opc.Da.SubscriptionState groupState = new Opc.Da.SubscriptionState();
             groupState.Name = groupName;
             groupState.Active = true;
-            groupState.UpdateRate = 1000;
+            groupState.UpdateRate = updateRate;
 
             // Short circuit if group already exists
             SubscriptionCollection existingCollection = _server.Subscriptions;

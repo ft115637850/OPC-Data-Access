@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPCDA", "OPCDA\OPCDA.csproj", "{3E9AD10A-1F12-4FFC-BDCB-BB0336432C58}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagDataAccessor", "TagDataAccessor\TagDataAccessor.csproj", "{0128152D-4128-4D81-BA8D-D9DFC4F34009}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3E9AD10A-1F12-4FFC-BDCB-BB0336432C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E9AD10A-1F12-4FFC-BDCB-BB0336432C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E9AD10A-1F12-4FFC-BDCB-BB0336432C58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0128152D-4128-4D81-BA8D-D9DFC4F34009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0128152D-4128-4D81-BA8D-D9DFC4F34009}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0128152D-4128-4D81-BA8D-D9DFC4F34009}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0128152D-4128-4D81-BA8D-D9DFC4F34009}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

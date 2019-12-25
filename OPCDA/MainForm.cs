@@ -12,6 +12,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tagdataaccessor;
+using Grpc.Core;
+using System.Configuration;
 
 namespace OPCDA
 {
@@ -74,16 +77,21 @@ namespace OPCDA
             this.connectBtn.Enabled = false;
             try
             {
+                var host = ConfigurationManager.AppSettings["endpoint"];
+                var rate = System.Convert.ToInt16(ConfigurationManager.AppSettings["update_rate"]);
+                Channel channel = new Channel(host, ChannelCredentials.Insecure);
+                TagDataAccessor.TagDataAccessorClient client = new TagDataAccessor.TagDataAccessorClient(channel);
                 var server = new OPCServer(this.serverTxtB.Text.Trim());
-                foreach(var group in subscribeItems)
+                foreach (var group in subscribeItems)
                 {
                     var tagLst = group.Value.Keys.ToList<string>();
                     var subscriber = new DataChangedSubscription
                     {
                         GroupName = group.Key,
-                        SubscribeItems = this.subscribeItems
+                        SubscribeItems = this.subscribeItems,
+                        Client = client
                     };
-                    server.AddSubscription(group.Key, tagLst, subscriber.OPCSubscription_DataChanged);
+                    server.AddSubscription(group.Key, tagLst, subscriber.OPCSubscription_DataChanged, rate);
                 }
 
                 this.connectBtn.Text = "Connected";
@@ -98,6 +106,7 @@ namespace OPCDA
         class DataChangedSubscription
         {
             public string GroupName { get; set; }
+            public TagDataAccessor.TagDataAccessorClient Client { get; set; }
             public Dictionary<string, Dictionary<string, ListViewItem.ListViewSubItem[]>> SubscribeItems { get; set; }
             public void OPCSubscription_DataChanged(object subscriptionHandle, object requestHandle, ItemValueResult[] tags)
             {
@@ -107,6 +116,7 @@ namespace OPCDA
                     SubscribeItems[GroupName][tag.ItemName][0].Text = tag.Value.ToString();
                     SubscribeItems[GroupName][tag.ItemName][1].Text = tag.Quality.ToString();
                     SubscribeItems[GroupName][tag.ItemName][2].Text = tag.Timestamp.ToString();
+                    Client.SendVTQAsync(new VTQ { Name = tag.ItemName, Time = tag.Timestamp.ToString(), Quality = tag.Quality.ToString(), Value = tag.Value.ToString() });
                 }
             }
         }
